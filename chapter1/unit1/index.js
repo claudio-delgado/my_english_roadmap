@@ -1,7 +1,9 @@
+var answers;
+
 window.addEventListener("load",
     (event) => {
 
-        //Translations.
+        //Traducciones.
         let icon = document.getElementsByClassName('translation-icon')[0];
         icon.addEventListener("click", 
             () => {
@@ -63,6 +65,7 @@ window.addEventListener("load",
                     document.getElementsByClassName('p47')[0].innerText = "1.6) Escribir oraciones, positivas y negativas. Usar is/isn't o are/aren't.";
                     document.getElementsByClassName('p48')[0].innerText = "Escribir oraciones, positivas y negativas. Usar I'm/I'm not.";
                     document.getElementsByClassName('p49')[0].innerText = "Ejercicio adicional";
+                    document.getElementsByClassName('p50')[0].innerText = "Evaluar respuestas";
                 } else {
                     icon.title = 'En español por favor!';
                     document.getElementById('title').innerText = "Unit";
@@ -120,15 +123,83 @@ window.addEventListener("load",
                     document.getElementsByClassName('p47')[0].innerText = "1.6) Write sentences, positive and negative. Use is/isn't or are/aren't.";
                     document.getElementsByClassName('p48')[0].innerText = "Write sentences, positive and negative. Use I'm/I'm not.";
                     document.getElementsByClassName('p49')[0].innerText = "Aditional exercise";
+                    document.getElementsByClassName('p50')[0].innerText = "Evaluate answers";
                 }
                 icon.childNodes[0].classList.toggle('fa-arrow-right');
                 icon.childNodes[0].classList.toggle('fa-arrow-left');
             }
         )
 
+        //Retorno al home.
         document.getElementsByClassName('home')[0].addEventListener("click", 
             () => { location.href = '../../home/index.html' }
         )
 
+        //Quitar formatos de validación en inputs al editarlos.
+        document.querySelectorAll('input').forEach(element => element.addEventListener('click', event => {
+            event.target.classList.remove('alert-danger')
+            event.target.classList.remove('border-danger')
+            if(!event.target.classList.contains('alert-success')){
+                event.target.classList.remove('border')
+            }
+        }))
+
+        //Leer json con datos de respuestas.
+        fetch('./data.json')
+                /*.then((response) => response.json())
+                .then((json) => answers = json);*/
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP error " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(answers => {
+                    document.querySelector('#evaluate').addEventListener('click', event => {
+                        answers.forEach(element => {
+                            //Evaluar respuestas ingresadas.
+                            document.querySelectorAll('.answer').forEach(function(input) {
+                                let exerciseNumber = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
+                                let subExerciseNumber = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
+                                let inputIndex = input.dataset['input']
+                                let canEvaluateAnswer = exerciseNumber != undefined && subExerciseNumber != undefined && inputIndex != undefined && answers != undefined
+                                if(canEvaluateAnswer){
+                                    if(element.exercise == exerciseNumber){
+                                        element.answers.forEach(answer => {
+                                            if(answer.sub_exercise == subExerciseNumber && answer.input == inputIndex){
+                                                answer.correct_answers.map((value, index) => {
+                                                    return value.toLowerCase()
+                                                })
+                                                if(answer.correct_answers.includes(input.value.toLowerCase())){
+                                                    //Bien respondida.
+                                                    input.classList.remove('border')
+                                                    input.classList.remove('border-danger')
+                                                    input.classList.remove('alert-danger')
+                                                    input.classList.add('border')
+                                                    input.classList.add('border-success')
+                                                    input.classList.add('alert-success');
+                                                    input.setAttribute('readonly', true)
+                                                } else {
+                                                    //Mal respondida.
+                                                    input.classList.remove('border')
+                                                    input.classList.remove('border-success')
+                                                    input.classList.remove('alert-success');
+                                                    input.classList.add('border')
+                                                    input.classList.add('border-danger')
+                                                    input.classList.add('alert-danger');
+                                                }
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    debugger;
+                                }
+                            })
+                        })
+                    });
+                })
+                .catch(function () {
+                    this.dataError = true;
+                })
     }
 )

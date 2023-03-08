@@ -62,6 +62,9 @@ window.addEventListener("load",
         document.getElementsByClassName('button')[0].addEventListener("click", 
             () => { location.href = './unit1/index.html' }
         )
+        document.getElementsByClassName('button')[1].addEventListener("click", 
+            () => { location.href = './unit2/index.html' }
+        )
 
     }
 )

@@ -277,61 +277,64 @@ window.addEventListener("load",
         }))
 
         //Leer json con datos de respuestas.
-        fetch('./data.json')
-                /*.then((response) => response.json())
-                .then((json) => answers = json);*/
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("HTTP error " + response.status);
-                    }
-                    return response.json();
-                })
-                .then(answers => {
-                    document.querySelector('#evaluate').addEventListener('click', event => {
-                        answers.forEach(element => {
-                            //Evaluar respuestas ingresadas.
-                            document.querySelectorAll('.answer').forEach(function(input) {
-                                let exerciseNumber = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
-                                let subExerciseNumber = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
-                                let inputIndex = input.dataset['input']
-                                let canEvaluateAnswer = exerciseNumber != undefined && subExerciseNumber != undefined && inputIndex != undefined && answers != undefined
-                                if(canEvaluateAnswer){
-                                    if(element.exercise == exerciseNumber){
-                                        element.answers.forEach(answer => {
-                                            if(answer.sub_exercise == subExerciseNumber && answer.input == inputIndex){
-                                                answer.correct_answers.map((value, index) => {
-                                                    return value.toLowerCase()
-                                                })
-                                                if(answer.correct_answers.includes(input.value.toLowerCase())){
-                                                    //Bien respondida.
-                                                    input.classList.remove('border')
-                                                    input.classList.remove('border-danger')
-                                                    input.classList.remove('alert-danger')
-                                                    input.classList.add('border')
-                                                    input.classList.add('border-success')
-                                                    input.classList.add('alert-success');
-                                                    input.setAttribute('readonly', true)
-                                                } else {
-                                                    //Mal respondida.
-                                                    input.classList.remove('border')
-                                                    input.classList.remove('border-success')
-                                                    input.classList.remove('alert-success');
-                                                    input.classList.add('border')
-                                                    input.classList.add('border-danger')
-                                                    input.classList.add('alert-danger');
-                                                }
-                                            }
+        fetch('./data.json', { 
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin':'*'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(answers => {
+            document.querySelector('#evaluate').addEventListener('click', event => {
+                answers.forEach(element => {
+                    //Evaluar respuestas ingresadas.
+                    document.querySelectorAll('.answer').forEach(function(input) {
+                        let exerciseNumber = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
+                        let subExerciseNumber = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
+                        let inputIndex = input.dataset['input']
+                        let canEvaluateAnswer = exerciseNumber != undefined && subExerciseNumber != undefined && inputIndex != undefined && answers != undefined
+                        if(canEvaluateAnswer){
+                            if(element.exercise == exerciseNumber){
+                                element.answers.forEach(answer => {
+                                    if(answer.sub_exercise == subExerciseNumber && answer.input == inputIndex){
+                                        answer.correct_answers.map((value, index) => {
+                                            return value.toLowerCase()
                                         })
+                                        if(answer.correct_answers.includes(input.value.toLowerCase())){
+                                            //Bien respondida.
+                                            input.classList.remove('border')
+                                            input.classList.remove('border-danger')
+                                            input.classList.remove('alert-danger')
+                                            input.classList.add('border')
+                                            input.classList.add('border-success')
+                                            input.classList.add('alert-success');
+                                            input.setAttribute('readonly', true)
+                                        } else {
+                                            //Mal respondida.
+                                            input.classList.remove('border')
+                                            input.classList.remove('border-success')
+                                            input.classList.remove('alert-success');
+                                            input.classList.add('border')
+                                            input.classList.add('border-danger')
+                                            input.classList.add('alert-danger');
+                                        }
                                     }
-                                } else {
-                                    debugger;
-                                }
-                            })
-                        })
-                    });
+                                })
+                            }
+                        } else {
+                            debugger;
+                        }
+                    })
                 })
-                .catch(function () {
-                    this.dataError = true;
-                })
+            });
+        })
+        .catch(function () {
+            this.dataError = true;
+        })
     }
 )

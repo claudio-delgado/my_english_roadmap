@@ -144,65 +144,328 @@ window.addEventListener("load",
             }
         }))
 
-        //Leer json con datos de respuestas.
-        fetch('./data.json', { 
-            mode: 'cors',
-            headers: {
-              'Access-Control-Allow-Origin':'*'
+        //Datos de respuestas.
+        let answers = [
+            {
+                "exercise" : "1.1",
+                "answers" : [
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 1,
+                        "correct_answers" : ["she's", "she`s", "she´s"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 1,
+                        "correct_answers" : ["they're", "they`re", "they´re"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 1,
+                        "correct_answers" : ["it's not", "it`s not", "it´s not", "it isn't", "it isn`t", "it isn´t"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 1,
+                        "correct_answers" : ["that's", "that`s", "that"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 1,
+                        "correct_answers" : ["I'm not", "I`m not", "I´m not"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 1,
+                        "correct_answers" : ["you're not", "you`re not", "you´re not", "you aren't", "you aren`t", "you aren´t"]
+                    }
+                ]
+            },
+            {
+                "exercise" : "1.2",
+                "answers" : [
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 1,
+                        "correct_answers" : ["is"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 1,
+                        "correct_answers" : ["am"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 1,
+                        "correct_answers" : ["is"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 1,
+                        "correct_answers" : ["are"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 1,
+                        "correct_answers" : ["is"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 1,
+                        "correct_answers" : ["are"]
+                    },
+                    {
+                        "sub_exercise" : 7,
+                        "input" : 1,
+                        "correct_answers" : ["is"]
+                    },
+                    {
+                        "sub_exercise" : 7,
+                        "input" : 2,
+                        "correct_answers" : ["are"]
+                    },
+                    {
+                        "sub_exercise" : 8,
+                        "input" : 1,
+                        "correct_answers" : ["am"]
+                    },
+                    {
+                        "sub_exercise" : 8,
+                        "input" : 2,
+                        "correct_answers" : ["is"]
+                    }
+                ]
+            },
+            {
+                "exercise" : "1.3",
+                "answers" : [
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 1,
+                        "correct_answers" : ["He's", "He´s", "He`s", "He is"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 1,
+                        "correct_answers" : ["I am", "I'm"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 1,
+                        "correct_answers" : ["He's", "He´s", "He`s", "He is"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 1,
+                        "correct_answers" : ["They're", "They´re", "They`re", "They are"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 1,
+                        "correct_answers" : ["It's", "It´s", "It`s", "It is"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 1,
+                        "correct_answers" : ["You're", "You´re", "You`re", "You are"]
+                    },
+                    {
+                        "sub_exercise" : 7,
+                        "input" : 1,
+                        "correct_answers" : ["She's", "She´s", "She`s", "She is"]
+                    },
+                    {
+                        "sub_exercise" : 8,
+                        "input" : 1,
+                        "correct_answers" : ["Here's", "Here´s", "Here`s", "Here is"]
+                    }
+                ]
+            },
+            {
+                "exercise" : "1.5",
+                "answers" : [
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 1,
+                        "correct_answers" : ["She's thirsty", "She´s thirsty", "She`s thirsty", "She is thirsty"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 1,
+                        "correct_answers" : ["'re cold", "´re cold", "`re cold", "are cold"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 1,
+                        "correct_answers" : ["'s hot", "´s hot", "`s hot", "is hot"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 1,
+                        "correct_answers" : ["He's afraid", "He´s afraid", "He`s afraid", "He is afraid"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 1,
+                        "correct_answers" : ["They're hungry", "They´re hungry", "They`re hungry", "They are hungry"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 1,
+                        "correct_answers" : ["She's angry", "She´s angry", "She`s angry", "She is angry"]
+                    }
+                ]
+            },
+            {
+                "exercise" : "1.6",
+                "answers" : [
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 1,
+                        "correct_answers" : ["It's hot today", "It´s hot today", "It`s hot today", "It is hot today"]
+                    },
+                    {
+                        "sub_exercise" : 1,
+                        "input" : 2,
+                        "correct_answers" : ["It's not hot today", "It´s not hot today", "It`s not hot today", "It is not hot today"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 1,
+                        "correct_answers" : ["'s windy today", "´s windy today", "`s windy today", "is windy today"]
+                    },
+                    {
+                        "sub_exercise" : 2,
+                        "input" : 2,
+                        "correct_answers" : ["'s not windy today", "´s not windy today", "`s not windy today", "is not windy today","isn't windy today", "isn´t windy today", "isn`t windy today"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 1,
+                        "correct_answers" : ["hands are cold"]
+                    },
+                    {
+                        "sub_exercise" : 3,
+                        "input" : 2,
+                        "correct_answers" : ["hands are not cold", "hands aren't cold", "hands aren´t cold", "hands aren`t cold"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 1,
+                        "correct_answers" : ["Brazil's a very big country", "Brazil´s a very big country", "Brazil`s a very big country", "Brazil is a very big country"]
+                    },
+                    {
+                        "sub_exercise" : 4,
+                        "input" : 2,
+                        "correct_answers" : ["Brazil isn't a very big country", "Brazil isn´t a very big country", "Brazil isn`t a very big country", "Brazil is not a very big country"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 1,
+                        "correct_answers" : ["Diamonds are cheap"]
+                    },
+                    {
+                        "sub_exercise" : 5,
+                        "input" : 2,
+                        "correct_answers" : ["Diamonds aren't cheap", "Diamonds aren´t cheap", "Diamonds aren`t cheap", "Diamonds are not cheap"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 1,
+                        "correct_answers" : ["Toronto's in the US", "Toronto´s in the US", "Toronto`s in the US", "Toronto is in the US"]
+                    },
+                    {
+                        "sub_exercise" : 6,
+                        "input" : 2,
+                        "correct_answers" : ["Toronto isn't in the US", "Toronto isn´t in the US", "Toronto isn`t in the US", "Toronto is not in the US"]
+                    },
+                    {
+                        "sub_exercise" : 7,
+                        "input" : 1,
+                        "correct_answers" : ["I'm tired", "I´m tired", "I`m tired"]
+                    },
+                    {
+                        "sub_exercise" : 7,
+                        "input" : 2,
+                        "correct_answers" : ["I'm not tired", "I´m not tired", "I`m not tired"]
+                    },
+                    {
+                        "sub_exercise" : 8,
+                        "input" : 1,
+                        "correct_answers" : ["I'm hungry", "I´m hungry", "I`m hungry"]
+                    },
+                    {
+                        "sub_exercise" : 8,
+                        "input" : 2,
+                        "correct_answers" : ["I'm not hungry", "I´m not hungry", "I`m not hungry"]
+                    },
+                    {
+                        "sub_exercise" : 9,
+                        "input" : 1,
+                        "correct_answers" : ["I'm a good swimmer", "I´m a good swimmer", "I`m a good swimmer"]
+                    },
+                    {
+                        "sub_exercise" : 9,
+                        "input" : 2,
+                        "correct_answers" : ["I'm not a good swimmer", "I´m not a good swimmer", "I`m not a good swimmer"]
+                    },
+                    {
+                        "sub_exercise" : 10,
+                        "input" : 1,
+                        "correct_answers" : ["I'm interested in football", "I´m interested in football", "I`m interested in football"]
+                    },
+                    {
+                        "sub_exercise" : 10,
+                        "input" : 2,
+                        "correct_answers" : ["I'm not interested in football", "I´m not interested in football", "I`m not interested in football"]
+                    }
+                ]
             }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error " + response.status);
-            }
-            return response.json();
-        })
-        .then(answers => {
-            document.querySelector('#evaluate').addEventListener('click', event => {
-                answers.forEach(element => {
-                    //Evaluar respuestas ingresadas.
-                    document.querySelectorAll('.answer').forEach(function(input) {
-                        let exerciseNumber = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
-                        let subExerciseNumber = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
-                        let inputIndex = input.dataset['input']
-                        let canEvaluateAnswer = exerciseNumber != undefined && subExerciseNumber != undefined && inputIndex != undefined && answers != undefined
-                        if(canEvaluateAnswer){
-                            if(element.exercise == exerciseNumber){
-                                element.answers.forEach(answer => {
-                                    if(answer.sub_exercise == subExerciseNumber && answer.input == inputIndex){
-                                        answer.correct_answers.map((value, index) => {
-                                            return value.toLowerCase()
-                                        })
-                                        if(answer.correct_answers.includes(input.value.toLowerCase())){
-                                            //Bien respondida.
-                                            input.classList.remove('border')
-                                            input.classList.remove('border-danger')
-                                            input.classList.remove('alert-danger')
-                                            input.classList.add('border')
-                                            input.classList.add('border-success')
-                                            input.classList.add('alert-success');
-                                            input.setAttribute('readonly', true)
-                                        } else {
-                                            //Mal respondida.
-                                            input.classList.remove('border')
-                                            input.classList.remove('border-success')
-                                            input.classList.remove('alert-success');
-                                            input.classList.add('border')
-                                            input.classList.add('border-danger')
-                                            input.classList.add('alert-danger');
-                                        }
+        ]
+
+        document.querySelector('#evaluate').addEventListener('click', event => {
+            answers.forEach(json_element => {
+                //Evaluar respuestas ingresadas.
+                document.querySelectorAll('.answer').forEach(function(input) {
+                    let inputExercise = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
+                    let inputSubExercise = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
+                    let inputIndex = input.dataset['input']
+                    let canEvaluateAnswer = inputExercise != undefined && inputSubExercise != undefined && inputIndex != undefined && answers != undefined
+                    
+                    if(canEvaluateAnswer){
+                        if(json_element.exercise == inputExercise){
+                            json_element.answers.forEach(answer => {
+                                if(answer.sub_exercise == inputSubExercise && answer.input == inputIndex){
+                                    answer.correct_answers = answer.correct_answers.map((value, index) => {
+                                        return value.toLowerCase()
+                                    })
+                                    if(answer.correct_answers.includes(input.value.toLowerCase())){
+                                        //Bien respondida.
+                                        input.classList.remove('border')
+                                        input.classList.remove('border-danger')
+                                        input.classList.remove('alert-danger')
+                                        input.classList.add('border')
+                                        input.classList.add('border-success')
+                                        input.classList.add('alert-success');
+                                        input.setAttribute('readonly', true)
+                                    } else {
+                                        //Mal respondida.
+                                        input.classList.remove('border')
+                                        input.classList.remove('border-success')
+                                        input.classList.remove('alert-success');
+                                        input.classList.add('border')
+                                        input.classList.add('border-danger')
+                                        input.classList.add('alert-danger');
                                     }
-                                })
-                            }
-                        } else {
-                            debugger;
+                                }
+                            })
                         }
-                    })
+                    } else {
+                        debugger;
+                    }
                 })
-            });
-        })
-        .catch(function () {
-            this.dataError = true;
-        })
+            })
+        });
+        
     }
 )

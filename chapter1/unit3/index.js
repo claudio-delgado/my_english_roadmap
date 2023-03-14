@@ -3,133 +3,6 @@ var answers;
 window.addEventListener("load",
     (event) => {
 
-        //Traducciones.
-        let icon = document.getElementsByClassName('translation-icon')[0];
-        icon.addEventListener("click", 
-            () => {
-                //Traducir al español?
-                if(icon.childNodes[0].classList.contains('fa-arrow-right')){
-                    icon.title = 'Quitar traducción';
-                    document.getElementById('title').innerText = "Unidad";
-                    document.getElementsByClassName('p1')[0].innerText = "soy(estoy) / es(está) / son(están)/somos(estamos)";
-                    document.getElementsByClassName('p2')[0].innerText = "Presentarte";
-                    document.getElementsByClassName('p3')[0].innerText = "El verbo SER/ESTAR. Positivo y negativo.";
-                    document.getElementsByClassName('p4')[0].innerText = "Positivo";
-                    document.getElementsByClassName('p5')[0].innerText = "Yo";
-                    document.getElementsByClassName('p5')[1].innerText = "Yo";
-                    document.getElementsByClassName('p6')[0].innerText = "soy/estoy";
-                    document.getElementsByClassName('p7')[0].innerText = "(Yo soy/estoy)";
-                    document.getElementsByClassName('p8')[0].innerHTML = "el<br>ella<br>eso";
-                    document.getElementsByClassName('p8')[1].innerHTML = "el<br>ella<br>eso";
-                    document.getElementsByClassName('p9')[0].innerText = "es/está";
-                    document.getElementsByClassName('p10')[0].innerHTML = "(el <strong>es/está</strong>)<br>(ella <strong>es/está</strong>)<br>(eso <strong>es/está</strong>)";
-                    document.getElementsByClassName('p11')[0].innerHTML = "nosotros<br>ustedes<br>ellos/as";
-                    document.getElementsByClassName('p11')[1].innerHTML = "nosotros<br>ustedes<br>ellos/as";
-                    document.getElementsByClassName('p12')[0].innerHTML = "somos/estamos<br>son/están";
-                    document.getElementsByClassName('p13')[0].innerHTML = "(nosotros <strong>somos/estamos</strong>)<br>(ustedes <strong>son/están</strong>)<br>(ellos/as <strong>son/están</strong>)";
-                    document.getElementsByClassName('p14')[0].innerText = "Formas abreviadas";
-                    document.getElementsByClassName('p14')[1].innerText = "Formas abreviadas";
-                    document.getElementsByClassName('p15')[0].innerText = "Negativo";
-                    document.getElementsByClassName('p16')[0].innerText = "no soy/estoy";
-                    document.getElementsByClassName('p17')[0].innerText = "(No soy/estoy))";
-                    document.getElementsByClassName('p18')[0].innerText = "no es/está";
-                    document.getElementsByClassName('p19')[0].innerHTML = "(el <strong>no es/está</strong>)<br>(ella <strong>no es/está</strong>)<br>(eso <strong>no es/está</strong>)";
-                    document.getElementsByClassName('p20')[0].innerHTML = "no somos/estamos<br>no estamos/están";
-                    document.getElementsByClassName('p21')[0].innerHTML = "(nosotros <strong>no somos/estamos</strong>)<br>(ustedes <strong>no son/están</strong>)<br>(ellos/as <strong>no son/están</strong>)";
-                    document.getElementsByClassName('p22')[0].innerHTML = "<strong>Yo estoy</strong> frío (con frío). ¿Podes cerrar la ventana, por favor?";
-                    document.getElementsByClassName('p23')[0].innerHTML = "<strong>Yo soy</strong> 32 años viejo (tengo 32 años). Mi hermana <strong>es</strong> 29 (tiene 29).";
-                    document.getElementsByClassName('p24')[0].innerHTML = "Steve <strong>está</strong> enfermo. <strong>El está</strong> en cama.";
-                    document.getElementsByClassName('p25')[0].innerHTML = "Mi hermano <strong>está</strong> atemorizado de los perros (le tiene miedo a los perros).";
-                    document.getElementsByClassName('p26')[0].innerHTML = "<strong>Son</strong> las diez en punto. <strong>Vos estás</strong> tarde de nuevo.";
-                    document.getElementsByClassName('p27')[0].innerHTML = "Ann y yo <strong>somos</strong> buenos amigos.";
-                    document.getElementsByClassName('p28')[0].innerHTML = "Tus llaves <strong>están</strong> en la mesa.";
-                    document.getElementsByClassName('p29')[0].innerHTML = "<strong>Yo estoy</strong> cansado, pero <strong>yo</strong> no estoy hambriento. (no tengo hambre)";
-                    document.getElementsByClassName('p30')[0].innerHTML = "Tom <strong>no está</strong> interesado en política. <strong>El está</strong> interesado en la música.";
-                    document.getElementsByClassName('p31')[0].innerHTML = "Jane <strong>no es</strong> una maestra. <strong>Ella es</strong> una estudiante.";
-                    document.getElementsByClassName('p32')[0].innerHTML = "Aquellas personas (gente) <strong>no son</strong> ingleses. <strong>Ellos son</strong> australianos.";
-                    document.getElementsByClassName('p33')[0].innerHTML = "<strong>Está</strong> soleado hoy, pero <strong>no está</strong> cálido.";
-                    document.getElementsByClassName('p34')[0].innerText = "Otros usos";
-                    document.getElementsByClassName('p35')[0].innerHTML = "Eso <strong>es</strong>, allí <strong>está</strong>, aquí <strong>está</strong>";
-                    document.getElementsByClassName('p36')[0].innerHTML = "Gracias. Eso <strong>es</strong> muy amable de vos. (de tu parte)";
-                    document.getElementsByClassName('p37')[0].innerHTML = "¡Mirá! Allá <strong>está</strong> Chris";
-                    document.getElementsByClassName('p38')[0].innerHTML = "'Aquí <strong>está</strong> su llave.'. 'Gracias'";
-                    document.getElementsByClassName('p39')[0].innerText = "¿Más sobre esto?";
-                    document.getElementsByClassName('p39')[1].innerText = "¿Más sobre esto?";
-                    document.getElementsByClassName('p40')[0].innerText = "Ejercicios";
-                    document.getElementsByClassName('p41')[0].innerText = "1.1) Escribir la forma abreviada (she's / we aren't, etc.)";
-                    document.getElementsByClassName('p42')[0].innerText = "1.2) Escribir: am, is o are";
-                    document.getElementsByClassName('p43')[0].innerText = "1.3) Completar las oraciones";
-                    document.getElementsByClassName('p44')[0].innerText = "1.4) Mirar las oraciones de Lisa en 1A. Ahora escribir oraciones acerca de vos.";
-                    document.getElementsByClassName('p45')[0].innerText = "1.5) Escribir oraciones para las imágenes. Usar:";
-                    document.getElementsByClassName('p46')[0].innerHTML = "atemorizado, enojado, frío, acalorado, hambriento, <s>sediento</s>";
-                    document.getElementsByClassName('p47')[0].innerText = "1.6) Escribir oraciones, positivas y negativas. Usar is/isn't o are/aren't.";
-                    document.getElementsByClassName('p48')[0].innerText = "Escribir oraciones, positivas y negativas. Usar I'm/I'm not.";
-                    document.getElementsByClassName('p49')[0].innerText = "Ejercicio adicional";
-                    document.getElementsByClassName('p50')[0].innerText = "Evaluar respuestas";
-                } else {
-                    icon.title = 'En español por favor!';
-                    document.getElementById('title').innerText = "Unit";
-                    document.getElementsByClassName('p1')[0].innerText = "am / is / are";
-                    document.getElementsByClassName('p2')[0].innerText = "Introducing yourself";
-                    document.getElementsByClassName('p3')[0].innerText = "The verb TO BE. Positive and negative.";
-                    document.getElementsByClassName('p4')[0].innerText = "Positive";
-                    document.getElementsByClassName('p5')[0].innerText = "I";
-                    document.getElementsByClassName('p5')[1].innerText = "I";
-                    document.getElementsByClassName('p6')[0].innerText = "am";
-                    document.getElementsByClassName('p7')[0].innerText = "(I'm)";
-                    document.getElementsByClassName('p8')[0].innerHTML = "he<br>she<br>it";
-                    document.getElementsByClassName('p8')[1].innerHTML = "he<br>she<br>it";
-                    document.getElementsByClassName('p9')[0].innerText = "is";
-                    document.getElementsByClassName('p10')[0].innerHTML = "(he<strong>'s</strong>)<br>(she<strong>'s</strong>)<br>(it<strong>'s</strong>)";
-                    document.getElementsByClassName('p11')[0].innerHTML = "we<br>you<br>they";
-                    document.getElementsByClassName('p11')[1].innerHTML = "we<br>you<br>they";
-                    document.getElementsByClassName('p12')[0].innerHTML = "are";
-                    document.getElementsByClassName('p13')[0].innerHTML = "(we<strong>'re</strong>)<br>(you<strong>'re</strong>)<br>(they<strong>'re</strong>)";
-                    document.getElementsByClassName('p14')[0].innerText = "short forms";
-                    document.getElementsByClassName('p14')[1].innerText = "short forms";
-                    document.getElementsByClassName('p15')[0].innerText = "Negative";
-                    document.getElementsByClassName('p16')[0].innerText = "am not";
-                    document.getElementsByClassName('p17')[0].innerText = "(I'm not)";
-                    document.getElementsByClassName('p18')[0].innerText = "is not";
-                    document.getElementsByClassName('p19')[0].innerHTML = "(he<strong>'s not</strong>) (he<strong> isn't</strong>)<br>(she<strong>'s not</strong>) (she<strong> isn't</strong>)<br>(it<strong>'s not</strong>) (it<strong> isn't</strong>)";
-                    document.getElementsByClassName('p20')[0].innerHTML = "are not";
-                    document.getElementsByClassName('p21')[0].innerHTML = "(we<strong>'re not</strong>) (we<strong> aren't</strong>)<br>(you<strong>'re not</strong>) (you<strong> aren't</strong>)<br>(they<strong>'re not</strong>) (they<strong> aren't</strong>)";
-                    document.getElementsByClassName('p22')[0].innerHTML = "<strong>I'm</strong> cold. Can you close the window, please?";
-                    document.getElementsByClassName('p23')[0].innerHTML = "<strong>I'm</strong> 32 years old. My sister <strong>is</strong> 29.";
-                    document.getElementsByClassName('p24')[0].innerHTML = "Steve <strong>is</strong> ill. <strong>He's</strong> in bed.";
-                    document.getElementsByClassName('p25')[0].innerHTML = "My brother <strong>is</strong> afraid of dogs.";
-                    document.getElementsByClassName('p26')[0].innerHTML = "<strong>It's</strong> ten o'clock. <strong>You're</strong> late again.";
-                    document.getElementsByClassName('p27')[0].innerHTML = "Ann and I <strong>are</strong> good friends.";
-                    document.getElementsByClassName('p28')[0].innerHTML = "Your keys <strong>are</strong> on the table.";
-                    document.getElementsByClassName('p29')[0].innerHTML = "<strong>I'm</strong> tired, but <strong>I'm</strong> not hungry.";
-                    document.getElementsByClassName('p30')[0].innerHTML = "Tom <strong>isn't</strong> interested in politics. <strong>He's</strong> interested in music.";
-                    document.getElementsByClassName('p31')[0].innerHTML = "Jane <strong>isn't</strong> a teacher. <strong>She's</strong> a student.";
-                    document.getElementsByClassName('p32')[0].innerHTML = "Those people <strong>aren't</strong> English. <strong>They're</strong> australian.";
-                    document.getElementsByClassName('p33')[0].innerHTML = "<strong>It's</strong> sunny today, but it <strong>isn't</strong> warm.";
-                    document.getElementsByClassName('p34')[0].innerText = "Other uses";
-                    document.getElementsByClassName('p35')[0].innerHTML = "that<strong>'s</strong> = that <strong>is</strong>, there<strong>'s</strong> = there <strong>is</strong>, here<strong>'s</strong> = here <strong>is</strong>";
-                    document.getElementsByClassName('p36')[0].innerHTML = "Thank you. That<strong>'s</strong> very kind of you.";
-                    document.getElementsByClassName('p37')[0].innerHTML = "Look! There<strong>'s</strong> Chris";
-                    document.getElementsByClassName('p38')[0].innerHTML = "'Here<strong>'s</strong> your key.'. 'Thank you'";                
-                    document.getElementsByClassName('p39')[0].innerText = "More on this?";
-                    document.getElementsByClassName('p39')[1].innerText = "More on this?";
-                    document.getElementsByClassName('p40')[0].innerText = "Exercises";
-                    document.getElementsByClassName('p41')[0].innerText = "1.1) Write the short form (she's / we aren't, etc.)";
-                    document.getElementsByClassName('p42')[0].innerText = "1.2) Write am, is or are";
-                    document.getElementsByClassName('p43')[0].innerText = "1.3) Complete the sentences";
-                    document.getElementsByClassName('p44')[0].innerText = "1.4) Look at Lisa's sentences in 1A. Now write sentences about yourself.";
-                    document.getElementsByClassName('p45')[0].innerText = "1.5) Write sentences for the pictures. Use:";
-                    document.getElementsByClassName('p46')[0].innerHTML = "afraid, angry, cold, hot, hungry, <s>thirsty</s>";
-                    document.getElementsByClassName('p47')[0].innerText = "1.6) Write sentences, positive and negative. Use is/isn't or are/aren't.";
-                    document.getElementsByClassName('p48')[0].innerText = "Write sentences, positive and negative. Use I'm/I'm not.";
-                    document.getElementsByClassName('p49')[0].innerText = "Aditional exercise";
-                    document.getElementsByClassName('p50')[0].innerText = "Evaluate answers";
-                }
-                icon.childNodes[0].classList.toggle('fa-arrow-right');
-                icon.childNodes[0].classList.toggle('fa-arrow-left');
-            }
-        )
-
         //Retorno al home.
         document.getElementsByClassName('home')[0].addEventListener("click", 
             () => { location.href = '../../home/index.html' }
@@ -147,277 +20,166 @@ window.addEventListener("load",
         //Datos de respuestas.
         let answers = [
             {
-                "exercise" : "1.1",
+                "exercise" : "3.1",
                 "answers" : [
                     {
                         "sub_exercise" : 1,
-                        "input" : 1,
-                        "correct_answers" : ["she's", "she`s", "she´s"]
+                        "correct_answers" : ["she's eating", "she`s eating", "she´s eating", "she is eating"]
                     },
                     {
                         "sub_exercise" : 2,
-                        "input" : 1,
-                        "correct_answers" : ["they're", "they`re", "they´re"]
+                        "correct_answers" : ["'s waiting", "`s waiting", "´s waiting", "is waiting"]
                     },
                     {
                         "sub_exercise" : 3,
-                        "input" : 1,
-                        "correct_answers" : ["it's not", "it`s not", "it´s not", "it isn't", "it isn`t", "it isn´t"]
+                        "correct_answers" : ["'re playing", "`re playing", "´re playing", "are playing"]
                     },
                     {
                         "sub_exercise" : 4,
-                        "input" : 1,
-                        "correct_answers" : ["that's", "that`s", "that"]
+                        "correct_answers" : ["he's lying", "he`s lying", "he´s lying", "he is lying"]
                     },
                     {
                         "sub_exercise" : 5,
-                        "input" : 1,
-                        "correct_answers" : ["I'm not", "I`m not", "I´m not"]
+                        "correct_answers" : ["they're having", "they`re having", "they´re having", "they are having"]
                     },
                     {
                         "sub_exercise" : 6,
-                        "input" : 1,
-                        "correct_answers" : ["you're not", "you`re not", "you´re not", "you aren't", "you aren`t", "you aren´t"]
+                        "correct_answers" : ["she's sitting", "she`s sitting", "she´s sitting", "she is sitting"]
                     }
                 ]
             },
             {
-                "exercise" : "1.2",
+                "exercise" : "3.2",
                 "answers" : [
                     {
                         "sub_exercise" : 1,
-                        "input" : 1,
-                        "correct_answers" : ["is"]
+                        "correct_answers" : ["'m working", "´m working", "`m working", "am working"]
                     },
                     {
                         "sub_exercise" : 2,
-                        "input" : 1,
-                        "correct_answers" : ["am"]
+                        "correct_answers" : ["'s cooking", "´s cooking", "`s cooking", "is cooking"]
                     },
                     {
                         "sub_exercise" : 3,
-                        "input" : 1,
-                        "correct_answers" : ["is"]
+                        "correct_answers" : ["are standing", "'re standing", "´re standing", "`re standing"]
                     },
                     {
                         "sub_exercise" : 4,
-                        "input" : 1,
-                        "correct_answers" : ["are"]
+                        "correct_answers" : ["is swimming", "'s swimming", "´s swimming", "`s swimming"]
                     },
                     {
                         "sub_exercise" : 5,
-                        "input" : 1,
-                        "correct_answers" : ["is"]
+                        "correct_answers" : ["are staying", "'re staying", "´re staying", "`re staying"]
                     },
                     {
                         "sub_exercise" : 6,
-                        "input" : 1,
-                        "correct_answers" : ["are"]
+                        "correct_answers" : ["is having", "'s having", "´s having", "`s having"]
                     },
                     {
                         "sub_exercise" : 7,
-                        "input" : 1,
-                        "correct_answers" : ["is"]
-                    },
-                    {
-                        "sub_exercise" : 7,
-                        "input" : 2,
-                        "correct_answers" : ["are"]
+                        "correct_answers" : ["are building", "'re building", "´re building", "`re building"]
                     },
                     {
                         "sub_exercise" : 8,
-                        "input" : 1,
-                        "correct_answers" : ["am"]
-                    },
-                    {
-                        "sub_exercise" : 8,
-                        "input" : 2,
-                        "correct_answers" : ["is"]
+                        "correct_answers" : ["'m going", "´m going", "`m going", "am going"]
                     }
                 ]
             },
             {
-                "exercise" : "1.3",
+                "exercise" : "3.3",
                 "answers" : [
                     {
                         "sub_exercise" : 1,
-                        "input" : 1,
-                        "correct_answers" : ["He's", "He´s", "He`s", "He is"]
+                        "correct_answers" : ["Jane isn't having dinner", "Jane isn´t having dinner", "Jane isn`t having dinner", "Jane is not having dinner"]
                     },
                     {
                         "sub_exercise" : 2,
-                        "input" : 1,
-                        "correct_answers" : ["I am", "I'm"]
+                        "correct_answers" : ["she's watching television", "she´s watching television", "she`s watching television", "she is watching television"]
                     },
                     {
                         "sub_exercise" : 3,
-                        "input" : 1,
-                        "correct_answers" : ["He's", "He´s", "He`s", "He is"]
+                        "correct_answers" : ["'s sitting on the floor", "´s sitting on the floor", "`s sitting on the floor", "is sitting on the floor"]
                     },
                     {
                         "sub_exercise" : 4,
-                        "input" : 1,
-                        "correct_answers" : ["They're", "They´re", "They`re", "They are"]
+                        "correct_answers" : ["she isn't reading a book", "she isn´t reading a book", "she isn`t reading a book", "she is not reading a book"]
                     },
                     {
                         "sub_exercise" : 5,
-                        "input" : 1,
-                        "correct_answers" : ["It's", "It´s", "It`s", "It is"]
+                        "correct_answers" : ["she isn't playing the piano", "she isn´t playing the piano", "she isn`t playing the piano", "she is not playing the piano"]
                     },
                     {
                         "sub_exercise" : 6,
-                        "input" : 1,
-                        "correct_answers" : ["You're", "You´re", "You`re", "You are"]
+                        "correct_answers" : ["she's laughing", "she´s laughing", "she`s laughing", "she is laughing"]
                     },
                     {
                         "sub_exercise" : 7,
-                        "input" : 1,
-                        "correct_answers" : ["She's", "She´s", "She`s", "She is"]
+                        "correct_answers" : ["she's wearing a hat", "she´s wearing a hat", "she`s wearing a hat", "she is wearing a hat"]
                     },
                     {
                         "sub_exercise" : 8,
-                        "input" : 1,
-                        "correct_answers" : ["Here's", "Here´s", "Here`s", "Here is"]
+                        "correct_answers" : ["she isn't writing a letter", "she isn´t writing a letter", "she isn`t writing a letter", "she is not writing a letter"]
                     }
                 ]
             },
             {
-                "exercise" : "1.5",
+                "exercise" : "3.4",
                 "answers" : [
                     {
                         "sub_exercise" : 1,
-                        "input" : 1,
-                        "correct_answers" : ["She's thirsty", "She´s thirsty", "She`s thirsty", "She is thirsty"]
+                        "correct_answers" : ["i'm washing my hair", "i´m washing my hair", "i`m washing my hair", "i am washing my hair",
+                                             "i'm not washing my hair", "i´m not washing my hair", "i`m not washing my hair", "i am not washing my hair"]
                     },
                     {
                         "sub_exercise" : 2,
-                        "input" : 1,
-                        "correct_answers" : ["'re cold", "´re cold", "`re cold", "are cold"]
+                        "correct_answers" : ["it's snowing", "it´s snowing", "it`s snowing", "it is snowing"]
                     },
                     {
                         "sub_exercise" : 3,
-                        "input" : 1,
-                        "correct_answers" : ["'s hot", "´s hot", "`s hot", "is hot"]
+                        "correct_answers" : ["it's not snowing", "it´s not snowing", "it`s not snowing", "it is not snowing",
+                                             "it isn't snowing", "it isn´t snowing", "it isn`t snowing"]
                     },
                     {
                         "sub_exercise" : 4,
-                        "input" : 1,
-                        "correct_answers" : ["He's afraid", "He´s afraid", "He`s afraid", "He is afraid"]
+                        "correct_answers" : ["i'm sitting on a chair", "i´m sitting on a chair", "i`m sitting on a chair", "i am sitting on a chair",
+                                             "i'm not sitting on a chair", "i´m not sitting on a chair", "i`m not sitting on a chair", "i am not sitting on a chair"]
                     },
                     {
                         "sub_exercise" : 5,
-                        "input" : 1,
-                        "correct_answers" : ["They're hungry", "They´re hungry", "They`re hungry", "They are hungry"]
+                        "correct_answers" : ["i'm eating", "i´m eating", "i`m eating", "i am eating",
+                                             "i'm not eating", "i´m not eating", "i`m not eating", "i am not eating"]
                     },
                     {
                         "sub_exercise" : 6,
-                        "input" : 1,
-                        "correct_answers" : ["She's angry", "She´s angry", "She`s angry", "She is angry"]
-                    }
-                ]
-            },
-            {
-                "exercise" : "1.6",
-                "answers" : [
-                    {
-                        "sub_exercise" : 1,
-                        "input" : 1,
-                        "correct_answers" : ["It's hot today", "It´s hot today", "It`s hot today", "It is hot today"]
-                    },
-                    {
-                        "sub_exercise" : 1,
-                        "input" : 2,
-                        "correct_answers" : ["It's not hot today", "It´s not hot today", "It`s not hot today", "It is not hot today"]
-                    },
-                    {
-                        "sub_exercise" : 2,
-                        "input" : 1,
-                        "correct_answers" : ["'s windy today", "´s windy today", "`s windy today", "is windy today"]
-                    },
-                    {
-                        "sub_exercise" : 2,
-                        "input" : 2,
-                        "correct_answers" : ["'s not windy today", "´s not windy today", "`s not windy today", "is not windy today","isn't windy today", "isn´t windy today", "isn`t windy today"]
-                    },
-                    {
-                        "sub_exercise" : 3,
-                        "input" : 1,
-                        "correct_answers" : ["hands are cold"]
-                    },
-                    {
-                        "sub_exercise" : 3,
-                        "input" : 2,
-                        "correct_answers" : ["hands are not cold", "hands aren't cold", "hands aren´t cold", "hands aren`t cold"]
-                    },
-                    {
-                        "sub_exercise" : 4,
-                        "input" : 1,
-                        "correct_answers" : ["Brazil's a very big country", "Brazil´s a very big country", "Brazil`s a very big country", "Brazil is a very big country"]
-                    },
-                    {
-                        "sub_exercise" : 4,
-                        "input" : 2,
-                        "correct_answers" : ["Brazil isn't a very big country", "Brazil isn´t a very big country", "Brazil isn`t a very big country", "Brazil is not a very big country"]
-                    },
-                    {
-                        "sub_exercise" : 5,
-                        "input" : 1,
-                        "correct_answers" : ["Diamonds are cheap"]
-                    },
-                    {
-                        "sub_exercise" : 5,
-                        "input" : 2,
-                        "correct_answers" : ["Diamonds aren't cheap", "Diamonds aren´t cheap", "Diamonds aren`t cheap", "Diamonds are not cheap"]
-                    },
-                    {
-                        "sub_exercise" : 6,
-                        "input" : 1,
-                        "correct_answers" : ["Toronto's in the US", "Toronto´s in the US", "Toronto`s in the US", "Toronto is in the US"]
-                    },
-                    {
-                        "sub_exercise" : 6,
-                        "input" : 2,
-                        "correct_answers" : ["Toronto isn't in the US", "Toronto isn´t in the US", "Toronto isn`t in the US", "Toronto is not in the US"]
+                        "correct_answers" : ["it's raining", "it´s raining", "it`s raining", "it is raining",
+                                             "it's not raining", "it´s not raining", "it`s not raining", "it is not raining",
+                                             "it isn't raining", "it isn´t raining", "it isn`t raining"]
                     },
                     {
                         "sub_exercise" : 7,
-                        "input" : 1,
-                        "correct_answers" : ["I'm tired", "I´m tired", "I`m tired"]
-                    },
-                    {
-                        "sub_exercise" : 7,
-                        "input" : 2,
-                        "correct_answers" : ["I'm not tired", "I´m not tired", "I`m not tired"]
+                        "correct_answers" : ["i'm learning english", "i´m learning english", "i`m learning english", "i am learning english",
+                                             "i'm not learning english", "i´m not learning english", "i`m not learning english", "i am not learning english"]
                     },
                     {
                         "sub_exercise" : 8,
-                        "input" : 1,
-                        "correct_answers" : ["I'm hungry", "I´m hungry", "I`m hungry"]
-                    },
-                    {
-                        "sub_exercise" : 8,
-                        "input" : 2,
-                        "correct_answers" : ["I'm not hungry", "I´m not hungry", "I`m not hungry"]
+                        "correct_answers" : ["i'm listening to music", "i´m listening to music", "i`m listening to music", "i am listening to music",
+                                             "i'm not listening to music", "i´m not listening to music", "i`m not listening to music", "i am not listening to music"]
                     },
                     {
                         "sub_exercise" : 9,
-                        "input" : 1,
-                        "correct_answers" : ["I'm a good swimmer", "I´m a good swimmer", "I`m a good swimmer"]
-                    },
-                    {
-                        "sub_exercise" : 9,
-                        "input" : 2,
-                        "correct_answers" : ["I'm not a good swimmer", "I´m not a good swimmer", "I`m not a good swimmer"]
+                        "correct_answers" : ["the sun's shining", "the sun´s shining", "the sun`s shining", "the sun is shining",
+                                             "the sun's not shining", "the sun´s not shining", "the sun`s not shining", "the sun is not shining",
+                                             "the sun isn't shining", "the sun isn´t shining", "the sun isn`t shining"]
                     },
                     {
                         "sub_exercise" : 10,
-                        "input" : 1,
-                        "correct_answers" : ["I'm interested in football", "I´m interested in football", "I`m interested in football"]
+                        "correct_answers" : ["i'm wearing shoes", "i´m wearing shoes", "i`m wearing shoes", "i am wearing shoes",
+                                             "i'm not wearing shoes", "i´m not wearing shoes", "i`m not wearing shoes", "i am not wearing shoes"]
                     },
                     {
-                        "sub_exercise" : 10,
-                        "input" : 2,
-                        "correct_answers" : ["I'm not interested in football", "I´m not interested in football", "I`m not interested in football"]
+                        "sub_exercise" : 11,
+                        "correct_answers" : ["i'm reading a newspaper", "i´m reading a newspaper", "i`m reading a newspaper", "i am reading a newspaper",
+                                             "i'm not reading a newspaper", "i´m not reading a newspaper", "i`m not reading a newspaper", "i am not reading a newspaper"]
                     }
                 ]
             }
@@ -429,13 +191,12 @@ window.addEventListener("load",
                 document.querySelectorAll('.answer').forEach(function(input) {
                     let inputExercise = input.dataset['exercise']//input.parentElement.parentElement.previousElementSibling.children[0].innerText.trim().split(")")[0] * 1;
                     let inputSubExercise = input.dataset['subexercise']//input.parentElement.firstChild.innerText.trim().split(")")[0] * 1;
-                    let inputIndex = input.dataset['input']
-                    let canEvaluateAnswer = inputExercise != undefined && inputSubExercise != undefined && inputIndex != undefined && answers != undefined
+                    let canEvaluateAnswer = inputExercise != undefined && inputSubExercise != undefined && answers != undefined
                     
                     if(canEvaluateAnswer){
                         if(json_element.exercise == inputExercise){
                             json_element.answers.forEach(answer => {
-                                if(answer.sub_exercise == inputSubExercise && answer.input == inputIndex){
+                                if(answer.sub_exercise == inputSubExercise){
                                     answer.correct_answers = answer.correct_answers.map((value, index) => {
                                         return value.toLowerCase()
                                     })

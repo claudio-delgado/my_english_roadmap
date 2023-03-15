@@ -313,3 +313,33 @@ button p:first-child{
 input {
     padding-left: 5px;
 }
+.ficha {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.alert-darkred{
+    color: #eccacd;
+    font-weight: bold;
+    background-color: #c57b81;
+    border-color: #d27c85;
+}
+.alert-darkred:hover, .alert-darkred.elegida{
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #a5474f;
+    border-color: #c9626c;
+}
+.alert-darkblue{
+    color: #cae1ec;
+    font-weight: bold;
+    background-color: #7b9ac5;
+    border-color: #7cabd2;
+}
+.alert-darkblue:hover, .alert-darkblue.elegida{
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #4779a5;
+    border-color: #629bc9;
+}

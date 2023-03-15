@@ -185,6 +185,8 @@ window.addEventListener("load",
             }
         ]
 
+        let game_selected_tile, game_tile_translation
+
         document.querySelector('#evaluate').addEventListener('click', event => {
             answers.forEach(json_element => {
                 //Evaluar respuestas ingresadas.
@@ -227,6 +229,41 @@ window.addEventListener("load",
                 })
             })
         });
-        
+
+        document.getElementById('nouns').innerText = document.querySelectorAll('.ficha.noun').length / 2;
+        document.getElementById('verbs').innerText = document.querySelectorAll('.ficha.verb').length / 2;
+        document.getElementById('words').innerText = document.querySelectorAll('.ficha.word').length / 2;
+        document.querySelectorAll('.ficha').forEach(element => {
+            element.addEventListener('click', event => {
+                //Evaluar si la ficha elegida anteriormente es la pareja de la actual.
+                if(game_selected_tile == event.target.dataset.pair || game_tile_translation == event.target.innerText){
+                    //Buscar ambas fichas y eliminarlas.
+                    document.querySelectorAll('.ficha.elegida').forEach(elementToRemove => {
+                        elementToRemove.remove()
+                    })
+                    element.remove();
+                    //Decrementar contador de fichas.
+                    if(element.classList.contains('noun')){
+                        document.getElementById('nouns').innerText = document.getElementById('nouns').innerText*1 - 1;
+                    }
+                    if(element.classList.contains('verb')){
+                        document.getElementById('verbs').innerText = document.getElementById('verbs').innerText*1 - 1;
+                    }
+                    if(element.classList.contains('word')){
+                        document.getElementById('words').innerText = document.getElementById('words').innerText*1 - 1;
+                    }
+                } else {
+                    //Obtener datos de la ficha y su correspondiente traducción, o viceversa.
+                    game_selected_tile = event.target.innerText
+                    game_tile_translation = event.target.dataset.pair
+                    //Quitar clase elegida a la ficha que la tenga.
+                    document.querySelectorAll('.ficha.elegida').forEach(element => {
+                        element.classList.remove('elegida')
+                    })
+                    //Agregar clase elegida a la actual clickeada.
+                    event.target.classList.add('elegida')
+                }
+            })
+        })
     }
 )

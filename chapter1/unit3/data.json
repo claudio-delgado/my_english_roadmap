@@ -90,11 +90,11 @@
             },
             {
                 "sub_exercise" : 6,
-                "correct_answers" : ["'s laughing", "´s laughing", "`s laughing", "is laughing"]
+                "correct_answers" : ["she's laughing", "she´s laughing", "she`s laughing", "she is laughing"]
             },
             {
                 "sub_exercise" : 7,
-                "correct_answers" : ["'s wearing a hat", "´s wearing a hat", "`s wearing a hat", "is wearing a hat"]
+                "correct_answers" : ["she's wearing a hat", "she´s wearing a hat", "she`s wearing a hat", "she is wearing a hat"]
             },
             {
                 "sub_exercise" : 8,
@@ -112,46 +112,52 @@
             },
             {
                 "sub_exercise" : 2,
-                "correct_answers" : ["it's snowing", "it´s snowing", "it`s snowing", "it is snowing",
-                                     "it's not snowing", "it´s not snowing", "it`s not snowing", "it is not snowing"]
+                "correct_answers" : ["it's snowing", "it´s snowing", "it`s snowing", "it is snowing"]
             },
             {
                 "sub_exercise" : 3,
+                "correct_answers" : ["it's not snowing", "it´s not snowing", "it`s not snowing", "it is not snowing",
+                                     "it isn't snowing", "it isn´t snowing", "it isn`t snowing"]
+            },
+            {
+                "sub_exercise" : 4,
                 "correct_answers" : ["i'm sitting on a chair", "i´m sitting on a chair", "i`m sitting on a chair", "i am sitting on a chair",
                                      "i'm not sitting on a chair", "i´m not sitting on a chair", "i`m not sitting on a chair", "i am not sitting on a chair"]
             },
             {
-                "sub_exercise" : 4,
+                "sub_exercise" : 5,
                 "correct_answers" : ["i'm eating", "i´m eating", "i`m eating", "i am eating",
                                      "i'm not eating", "i´m not eating", "i`m not eating", "i am not eating"]
             },
             {
-                "sub_exercise" : 5,
+                "sub_exercise" : 6,
                 "correct_answers" : ["it's raining", "it´s raining", "it`s raining", "it is raining",
-                                     "it's not raining", "it´s not raining", "it`s not raining", "it is not raining"]
+                                     "it's not raining", "it´s not raining", "it`s not raining", "it is not raining",
+                                     "it isn't raining", "it isn´t raining", "it isn`t raining"]
             },
             {
-                "sub_exercise" : 6,
+                "sub_exercise" : 7,
                 "correct_answers" : ["i'm learning english", "i´m learning english", "i`m learning english", "i am learning english",
                                      "i'm not learning english", "i´m not learning english", "i`m not learning english", "i am not learning english"]
             },
             {
-                "sub_exercise" : 7,
+                "sub_exercise" : 8,
                 "correct_answers" : ["i'm listening to music", "i´m listening to music", "i`m listening to music", "i am listening to music",
                                      "i'm not listening to music", "i´m not listening to music", "i`m not listening to music", "i am not listening to music"]
             },
             {
-                "sub_exercise" : 8,
+                "sub_exercise" : 9,
                 "correct_answers" : ["the sun's shining", "the sun´s shining", "the sun`s shining", "the sun is shining",
-                                     "the sun's not shining", "the sun´s not shining", "the sun`s not shining", "the sun is not shining"]
+                                     "the sun's not shining", "the sun´s not shining", "the sun`s not shining", "the sun is not shining",
+                                     "the sun isn't shining", "the sun isn´t shining", "the sun isn`t shining"]
             },
             {
-                "sub_exercise" : 9,
+                "sub_exercise" : 10,
                 "correct_answers" : ["i'm wearing shoes", "i´m wearing shoes", "i`m wearing shoes", "i am wearing shoes",
                                      "i'm not wearing shoes", "i´m not wearing shoes", "i`m not wearing shoes", "i am not wearing shoes"]
             },
             {
-                "sub_exercise" : 10,
+                "sub_exercise" : 11,
                 "correct_answers" : ["i'm reading a newspaper", "i´m reading a newspaper", "i`m reading a newspaper", "i am reading a newspaper",
                                      "i'm not reading a newspaper", "i´m not reading a newspaper", "i`m not reading a newspaper", "i am not reading a newspaper"]
             }

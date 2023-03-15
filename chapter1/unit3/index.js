@@ -245,12 +245,24 @@ window.addEventListener("load",
                     //Decrementar contador de fichas.
                     if(element.classList.contains('noun')){
                         document.getElementById('nouns').innerText = document.getElementById('nouns').innerText*1 - 1;
+                        if(document.getElementById('nouns').innerText == "0"){
+                            document.getElementById('nouns').parentElement.parentElement.parentElement.classList.remove('alert-danger')
+                            document.getElementById('nouns').parentElement.parentElement.parentElement.classList.add('alert-success')
+                        }
                     }
                     if(element.classList.contains('verb')){
                         document.getElementById('verbs').innerText = document.getElementById('verbs').innerText*1 - 1;
+                        if(document.getElementById('verbs').innerText == "0"){
+                            document.getElementById('verbs').parentElement.parentElement.parentElement.classList.remove('alert-danger')
+                            document.getElementById('verbs').parentElement.parentElement.parentElement.classList.add('alert-success')
+                        }
                     }
                     if(element.classList.contains('word')){
                         document.getElementById('words').innerText = document.getElementById('words').innerText*1 - 1;
+                        if(document.getElementById('words').innerText == "0"){
+                            document.getElementById('words').parentElement.parentElement.parentElement.classList.remove('alert-danger')
+                            document.getElementById('words').parentElement.parentElement.parentElement.classList.add('alert-success')
+                        }
                     }
                 } else {
                     //Obtener datos de la ficha y su correspondiente traducción, o viceversa.

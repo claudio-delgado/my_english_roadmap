@@ -167,7 +167,7 @@ window.addEventListener("load",
                     {
                         "sub_exercise" : 4,
                         "input" : 1,
-                        "correct_answers" : ["that's", "that`s", "that"]
+                        "correct_answers" : ["that's", "that`s", "that´s"]
                     },
                     {
                         "sub_exercise" : 5,
